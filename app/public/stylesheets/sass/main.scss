@@ -1,0 +1,256 @@
+$default-font-size: 14px !default;
+
+$default-margin-top: 10px !default;
+$default-margin-bottom: 10px !default;
+
+$default-link-color: #057acc !default;
+$default-link-hover-color: #dc29b4 !default;
+$default-text-color: #111;
+
+/* ==========================================================================
+   Mixins/Extendables
+   ========================================================================== */
+
+%nulled-list {
+    &, li {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        }
+    }
+
+%cf:before,
+%cf:after {
+    content: "";
+    display: table;
+    }
+
+    %cf:after {
+        clear: both;
+        }
+
+/* ==========================================================================
+   Defaults
+   ========================================================================== */
+
+/**
+  * Base
+  */
+
+html {
+    height: 100%;
+    }
+
+body {
+    font: normal $default-font-size Arial, Tahoma, FreeSans, sans-serif;
+    /*height: 100%; use only if sticky footer */
+    line-height: 18px;
+    color: $default-text-color;
+    background-color: #fff;
+    }
+
+/**
+  * Links
+  */
+
+a {
+    color: $default-link-color;
+    }
+
+a:focus {
+    outline: thin dotted;
+    }
+
+a:hover,
+a:active {
+    outline: 0;
+    }
+
+a:hover {
+    text-decoration: none;
+    }
+
+/**
+  * Typography
+  */
+
+h1 {
+    font-size: 32px;
+    margin: 20px 0;
+    line-height: 38px;
+    }
+
+h2 {
+    font-size: 24px;
+    margin: 18px 0;
+    line-height: 29px;
+    }
+
+h3 {
+    font-size: 18px;
+    margin: 16px 0;
+    line-height: 22px;
+    }
+
+h4 {
+    font-size: 16px;
+    margin: 14px 0;
+    line-height: 20px;
+    }
+
+h5 {
+    font-size: 13px;
+    margin: 12px 0;
+    line-height: 18px;
+    }
+
+h6 {
+    font-size: 12px;
+    margin: 10px 0;
+    line-height: 16px;
+    }
+
+blockquote {
+    margin-top: $default-margin-top;
+    margin-bottom: $default-margin-bottom;
+    margin-left: 40px;
+    margin-right: 40px;
+    }
+
+hr {
+    display: block;
+    height: 1px;
+    margin-top: $default-margin-top;
+    margin-bottom: $default-margin-bottom;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    border: 0;
+    background-color: #ccc;
+    }
+
+p,
+pre {
+    margin-top: $default-margin-top;
+    margin-bottom: $default-margin-bottom;
+    }
+
+code,
+kbd,
+pre,
+samp {
+    font-size: $default-font-size;
+    }
+
+/**
+  * Lists
+  */
+
+dl,
+menu,
+ol,
+ul {
+    margin-top: $default-margin-top;
+    margin-bottom: $default-margin-top;
+    }
+
+dd {
+    margin: 0 0 0 40px;
+    }
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+    }
+
+nav ul,
+nav ol {
+    list-style: none;
+    }
+
+/**
+  * Embedded content
+  */
+
+img {
+    vertical-align: middle;
+    }
+
+/**
+  * Forms
+  */
+
+input[type="text"],
+textarea,
+select {
+    border: 1px solid #b8babf;
+    color: $default-text-color;
+    }
+
+input[type="text"]:hover,
+textarea:hover,
+select:hover {
+    border-color: #939499;
+    }
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    outline: 0;
+    border-color: #70c3f5;
+    }
+
+input[type="text"],
+textarea {
+    padding: 1px 1px 1px 4px;
+    }
+
+input[type="text"] {
+    height: 22px;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 22px; /* IE 8/9 incorrect alignment fix*/
+    }
+
+textarea {
+    max-height: 500px;
+    height: 200px;
+    margin-top: -1px;
+    line-height: 18px;
+    resize: vertical;
+    }
+
+select {
+    height: 24px;
+    padding: 2px;
+    }
+
+input[type="checkbox"],
+input[type="radio"] {
+    vertical-align: -1px;
+    }
+
+noindex:-o-prefocus,
+input[type="checkbox"],
+input[type="radio"] { /* opera 12 fix */
+    vertical-align: 0px;
+    }
+
+/* ==========================================================================
+   Plugins customization
+   ========================================================================== */
+
+
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+

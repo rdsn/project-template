@@ -1,0 +1,68 @@
+!!! 5
+//if IE 8
+    html(class='no-js ie8', lang='en')
+//[if gt IE 8]><!
+html(class='no-js', lang='en')
+    //<![endif]
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        title Title
+        meta(name='description', content='')
+        meta(name='viewport', content='width=device-width')
+        link(rel='stylesheet', href='/css/normalize.css')
+        link(rel='stylesheet', href='/css/main.css')
+        script (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
+        //if IE 8
+            script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+        script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+        script window.jQuery || document.write('<script src="/js/vendor/jquery-1.10.2.min.js"><\/script>')
+    body
+        .wrapper
+            .section
+                input(type='checkbox')
+                |  Два слова
+            .section
+                input(type='radio')
+                |  Два слова
+            .section
+                | Два слова
+                input(type='text', value='Слова большие')
+                |  asd as  
+                select(name='gavno')
+                    option asldkj
+                    option asldkj
+                    option asldkj
+                |  Два слова
+            
+            button button
+            input(type='submit', value='button')
+            
+            .section
+                textarea(cols=10, rows=20) Два слова
+                |  as dasd asd asdas
+            .container
+                blockquote asdas
+                hr
+                span sdfkla
+                | sadiaklsdf
+                dl
+                    dt asd
+                    dd sdf
+                pre saome
+                menu asdasd
+                nav
+                    ul
+                        li
+                            a(href="#") asd
+                .nav-container
+                    ul.nav
+                        li
+                            a(href='#') Главная
+                        li
+                            a(href='#') Бронирование
+                        li
+                            a(href='#') Номера и цены
+                block content
+        footer
+    script(src='/js/main.js')

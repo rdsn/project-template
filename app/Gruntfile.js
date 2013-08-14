@@ -62,6 +62,10 @@ module.exports = function(grunt) {
         replacements: [{ 
           from: /="\/(?!\/)/g,                   // string replacement
           to: '="' 
+        },
+        {
+            from: /url\(('|")?\//g,
+            to: 'url($1'
         }]
       },
       css: {
@@ -95,21 +99,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-clean');
   
-  grunt.registerTask('serv', [
+  grunt.registerTask('run', [
     'express:dev',
     'watch'
   ]);
   
-  grunt.registerTask('run', [
-    'jade:dev',
-    'sass:dev',
-    'copy:js',
-    'copy:images',
-    'copy:staticFiles',
-    'copy:moduleJs',
-    'copy:moduleImages',
-    'watch'
-  ]);
   grunt.registerTask('build', [
     'jade:build',
     'copy:build',
@@ -118,8 +112,8 @@ module.exports = function(grunt) {
     'replace:css',
     'compress:build',
   ]);
-  //grunt.registerTask('default', ['run']);
-  grunt.registerTask('default', ['serv']);
+  
+  grunt.registerTask('default', ['run']);
   
   grunt.event.on('watch', function(action, filepath) {
     grunt.log.writeln(filepath + ' has ' + action);

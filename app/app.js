@@ -12,6 +12,8 @@ var express = require('express')
     .use(nib())
 }*/
 
+app.locals.pretty = true;
+
 app.set('views', __dirname + '/views/pages');
 //console.log(app.get('views'));
 app.set('view engine', 'jade')

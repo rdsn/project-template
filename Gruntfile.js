@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-        script: 'app.js'
+        script: 'server.js'
         }
       }
     },
@@ -21,14 +21,14 @@ module.exports = function(grunt) {
         spawn: false
       },
       scss: {
-        files: ['public/stylesheets/sass/*.scss'],
+        files: ['app/public/css/*.scss'],
         tasks: ['sass:dev']
       }
     },
     sass: {
       dev: {
         files: {
-          'public/css/main.css': 'public/stylesheets/sass/main.scss'
+          '.tmp/css/main.css': 'app/public/css/main.scss'
         },
       }
     },

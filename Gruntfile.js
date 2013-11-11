@@ -1,5 +1,5 @@
 var copyFilter = function(src){ 
-  return src.indexOf('stylesheets') == -1 ? true : false;
+  return src.indexOf('scss') == -1 ? true : false;
 }
 
 module.exports = function(grunt) {
@@ -26,6 +26,11 @@ module.exports = function(grunt) {
       }
     },
     sass: {
+      build: {
+        files: {
+          '<%= pkg.name %>/css/main.css': 'app/public/css/main.scss'
+        }
+      },
       dev: {
         files: {
           '.tmp/css/main.css': 'app/public/css/main.scss'
@@ -40,8 +45,8 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,     // Enable dynamic expansion.
-            cwd: 'views/pages/',
-            dest: '../<%= pkg.name %>/',
+            cwd: 'app/views/pages/',
+            dest: '<%= pkg.name %>/',
             src: ['*.jade'], // Actual pattern(s) to match.
             ext: '.html',   // Dest filepaths will have this extension.
           },
@@ -51,14 +56,14 @@ module.exports = function(grunt) {
     copy: {
       build: {
         files: [
-          {expand: true, cwd: 'public/', src: ['**'], dest: '../<%= pkg.name %>/', filter: copyFilter},
+          {expand: true, cwd: 'app/public/', src: ['**'], dest: '<%= pkg.name %>/', filter: copyFilter},
         ]
       }
     },
     replace: {
       html: {
-        src: ['../<%= pkg.name %>/*.html'],             // source files array (supports minimatch)
-        dest: '../<%= pkg.name %>/',             // destination directory or file
+        src: ['<%= pkg.name %>/*.html'],             // source files array (supports minimatch)
+        dest: '<%= pkg.name %>/',             // destination directory or file
         replacements: [{ 
           from: /="\/(?!\/)/g,                   // string replacement
           to: '="' 
@@ -69,8 +74,8 @@ module.exports = function(grunt) {
         }]
       },
       css: {
-        src: ['../<%= pkg.name %>/css/*.css'],             // source files array (supports minimatch)
-        dest: '../<%= pkg.name %>/css/',             // destination directory or file
+        src: ['<%= pkg.name %>/css/*.css'],             // source files array (supports minimatch)
+        dest: '<%= pkg.name %>/css/',             // destination directory or file
         replacements: [{
             from: /url\(('|")?\//g,
             to: 'url($1../'
@@ -80,10 +85,10 @@ module.exports = function(grunt) {
     compress: {
       build: {
         options: {
-          archive: '../<%= pkg.name %>.zip'
+          archive: '<%= pkg.name %>.zip'
         },
         files: { // do not remove this object (change to only src)!
-          src: '../<%= pkg.name %>/**'
+          src: '<%= pkg.name %>/**'
         }
       }
     },
@@ -105,6 +110,7 @@ module.exports = function(grunt) {
   ]);
   
   grunt.registerTask('build', [
+    'sass:build',
     'jade:build',
     'copy:build',
     'clean',
